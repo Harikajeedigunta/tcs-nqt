@@ -1,0 +1,63 @@
+using map
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+using namespace std;
+void oddFrequencyEle(vector<int>& nums)
+{
+    unordered_map<int,int>mp;
+    for(auto x:nums)
+    {
+        mp[x]+=1;
+    }
+    for(const pair<int,int>& p:mp)
+    {
+        if(p.second%2!=0)
+        {
+            cout<<p.first<<endl;
+        }
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    oddFrequencyEle(v);
+}
+
+Method 2:using xor
+#include<iostream>
+#include<vector>
+using namespace std;
+int OddFrequencyEle(vector<int>& v,int n)
+{
+    int result=0;
+    for(int i=0;i<n;i++)
+    {
+        result=result^v[i];
+    }
+    return result;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    cout<<OddFrequencyEle(v,n);
+}
+
+Input:
+9
+7 7 8 8 9 9 7 8 8
+
+Output:
+7
