@@ -1,0 +1,43 @@
+C++ Code:
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+void leadersInArray(vector<int>& nums,int n)
+{
+   if(n==0) return;
+   int largest=nums[n-1];
+   vector<int>ans;
+   ans.push_back(largest);
+   for(int i=n-2;i>=0;i--)
+   {
+       if(nums[i]>largest)
+       {
+           ans.push_back(nums[i]);
+           largest=nums[i];
+       }
+   }
+   reverse(ans.begin(),ans.end());
+   for(int x:ans)
+   {
+       cout<<x<<" ";
+   }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    leadersInArray(v,n);
+}
+
+Input:
+6
+16 17 4 3 5 2
+
+Output:
+17 5 2 
