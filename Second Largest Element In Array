@@ -1,0 +1,50 @@
+C++ code:
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int secondLargestNum(vector<int>& nums,int n)
+{
+    int largest=INT_MIN;
+    int second_largest=INT_MIN;
+    bool found=false;
+    for(int i=0;i<n;i++)
+    {
+        if(nums[i]>largest)
+        {
+            second_largest=largest;
+            largest=nums[i];
+            found=true;
+        }
+        else if(nums[i]>second_largest && largest!=nums[i])
+        {
+            second_largest=nums[i];
+        }
+    }
+    return second_largest;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int ans=secondLargestNum(v,n);
+    if(ans==INT_MIN)
+    {
+        cout<<"No second largest"<<endl;
+    }
+    else
+    {
+        cout<<ans<<endl;
+    }
+}
+Input:
+5
+4 2 9 8 7
+
+Output:
+8
