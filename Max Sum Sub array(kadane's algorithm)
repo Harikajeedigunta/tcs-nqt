@@ -1,0 +1,39 @@
+C++ code:
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int maxSuArraySum(vector<int>& v,int n)
+{
+    if(n==0) return 0;
+    int max_sum=INT_MIN;
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        sum+=v[i];
+        max_sum=max(sum,max_sum);
+        if(sum<0)
+        {
+            sum=0;
+        }
+    }
+    return max_sum;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    cout<<maxSuArraySum(v,n);
+}
+
+Input:
+6
+8 4 -10 -5 -2 -1
+
+Output:
+12
