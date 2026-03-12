@@ -1,0 +1,35 @@
+C++ code:
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+void rightRotateArray(vector<int>& v,int n,int k)
+{
+    if(n==0) return;
+    k=k%n;
+    reverse(v.begin(),v.end());
+    reverse(v.begin(),v.begin()+k);
+    reverse(v.begin()+k,v.end());
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    rightRotateArray(v,n,k);
+}
+
+Input:
+5 2
+1 2 3 4 5
+
+Output:
+4 5 1 2 3 
