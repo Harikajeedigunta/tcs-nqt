@@ -1,0 +1,44 @@
+C++ code:
+#include<iostream>
+#include<vector>
+using namespace std;
+pair<int,int> twoSum(vector<int>& v,int n,int k)
+{
+    int first=0,last=n-1;
+    while(first<last)
+    {
+        int sum=v[first]+v[last];
+        if(sum==k)
+        {
+            return {v[first],v[last]};
+        }
+        else if(sum<k)
+        {
+            first++;
+        }
+        else 
+        {
+            last--;
+        }
+    }
+    return {-1,-1};
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    pair<int,int>ans=twoSum(v,n,k);
+    cout<<ans.first<<" "<<ans.second<<endl;
+}
+
+Input:
+6 10
+1 2 3 4 6 8
+
+Output:
+2 8
