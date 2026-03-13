@@ -1,0 +1,35 @@
+C++ code:
+#include<iostream>
+#include<vector>
+using namespace std;
+int removeDuplicates(vector<int>& v,int n)
+{
+    int j=0;
+    for(int i=1;i<n;i++)
+    {
+        if(v[i]!=v[j])
+        {
+            j++;
+            v[j]=v[i];
+        }
+    }
+    return j+1;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    cout<<removeDuplicates(v,n);
+}
+
+Input:
+5
+1 2 2 3 3
+
+Output:
+3
