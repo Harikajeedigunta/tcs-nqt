@@ -1,0 +1,46 @@
+C++ code:
+#include<iostream>
+#include<vector>
+using namespace std;
+vector<int> avgOfSubArraySizek(vector<int>& v,int n,int k)
+{
+    if(n==0 || k>n) return {};
+    int avg=0;
+    long long sum=0;
+    vector<int>ans;
+    for(int i=0;i<k;i++)
+    {
+        sum+=v[i];
+    }
+    avg=sum/k;
+    ans.push_back(avg);
+    for(int i=k;i<n;i++)
+    {
+        sum+=v[i]-v[i-k];
+        avg=sum/k;
+        ans.push_back(avg);
+    }
+    return ans; 
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    vector<int>res=avgOfSubArraySizek(v,n,k);
+    for(int x:res)
+    {
+        cout<<x<<" ";
+    }
+}
+
+Input:
+5 3
+1 2 3 4 5
+
+Output:
+2 3 4 
