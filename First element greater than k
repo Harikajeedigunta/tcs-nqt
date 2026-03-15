@@ -1,0 +1,33 @@
+C++ code:
+#include<iostream>
+#include<vector>
+using namespace std;
+int eleGreaterThanK(vector<int>& v,int n,int k)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]>k)
+        {
+            return v[i];
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    cout<<eleGreaterThanK(v,n,k);
+}
+
+Input:
+5 6
+3 7 2 9 5
+
+Output:
+7
