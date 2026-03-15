@@ -1,0 +1,33 @@
+C++ code:
+#include<iostream>
+#include<vector>
+using namespace std;
+int indexOfEleK(vector<int>& v,int n,int k)
+{
+    if(n<=0) return -1;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==k)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    cout<<indexOfEleK(v,n,k);
+}
+
+Input:
+0 5
+
+Output:
+-1
