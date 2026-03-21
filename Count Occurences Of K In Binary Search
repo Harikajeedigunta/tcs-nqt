@@ -2,7 +2,7 @@ C++ Code:
 #include<iostream>
 #include<vector>
 using namespace std;
-int countOccurencesOfK(vector<int>& nums,int n,int k)
+int firstOccurenceOfK(vector<int>& nums,int n,int k)
 {
     int low=0,high=n-1;
     int result=-1;
